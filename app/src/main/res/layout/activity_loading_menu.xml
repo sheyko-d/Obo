@@ -1,0 +1,73 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:paddingBottom="8dp"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    android:paddingTop="8dp"
+    tools:context="com.moysof.obo.SplashActivity" >
+
+    <com.moysof.obo.typeface.TextLogo  android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/sloganTxt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-24dp"
+        android:text="@string/app_name"
+        android:textColor="@color/green"
+        android:textSize="150sp" />
+
+    <com.moysof.obo.typeface.TextLogo  android:id="@+id/sloganTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:shadowColor="@android:color/black"
+        android:shadowRadius="8"
+        android:text="@string/slogan"
+        android:textColor="@android:color/white"
+        android:textSize="14sp" />
+
+    <com.moysof.obo.typeface.ButtonRobotoMedium  android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button_facebook_selector"
+        android:drawableLeft="@drawable/facebook_button_drawable"
+        android:onClick="facebook"
+        android:paddingRight="36dp"
+        android:text="@string/facebook"
+        android:textColor="@android:color/white"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="4dp" >
+
+        <com.moysof.obo.typeface.ButtonRobotoMedium      android:id="@+id/button2"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginRight="2dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_selector"
+            android:onClick="signUp"
+            android:text="@string/sign_up"
+            android:textSize="14sp" />
+
+        <com.moysof.obo.typeface.ButtonRobotoMedium      android:id="@+id/button3"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginLeft="2dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_selector"
+            android:onClick="logIn"
+            android:text="@string/log_in"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+</RelativeLayout>

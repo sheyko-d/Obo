@@ -1,0 +1,140 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/mytoolbar"
+        layout="@layout/toolbar" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:orientation="horizontal"
+                android:padding="8dp" >
+
+                <com.moysof.obo.view.RoundedImageView
+                    android:id="@+id/messagesItemImg"
+                    android:layout_width="54dp"
+                    android:layout_height="54dp"
+                    android:contentDescription="@null"
+                    android:scaleType="centerCrop" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="8dp"
+                    android:orientation="vertical" >
+
+                    <com.moysof.obo.typeface.TextRobotoBold
+                        android:id="@+id/messagesTitleTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/gray_primary"
+                        android:textSize="16sp" />
+
+                    <com.moysof.obo.typeface.TextRobotoThin
+                        android:id="@+id/messagesPriceTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/gray_secondary"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <GridView
+                android:id="@+id/messagesGrid"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/linearLayout1"
+                android:layout_below="@+id/linearLayout2"
+                android:background="@color/gray_lightest"
+                android:clipToPadding="false"
+                android:paddingBottom="16dp"
+                android:paddingTop="8dp"
+                android:stackFromBottom="true"
+                android:transcriptMode="alwaysScroll" >
+            </GridView>
+
+            <LinearLayout
+                android:id="@+id/linearLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:background="@android:color/white" >
+
+                <EditText
+                    android:id="@+id/messagesEditTxt"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="0.5dp"
+                    android:layout_marginLeft="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/apptheme_edit_text_holo_light"
+                    android:hint="Your message..."
+                    android:inputType="textCapSentences"
+                    android:textColor="@color/green"
+                    android:textColorHint="@color/gray_light"
+                    android:textSize="16sp" />
+
+                <com.moysof.obo.typeface.ButtonRobotoMedium
+                    android:id="@+id/messagesBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="4dp"
+                    android:background="@drawable/button_green_selector"
+                    android:gravity="center"
+                    android:onClick="send"
+                    android:paddingBottom="8dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:paddingTop="8dp"
+                    android:text="@string/messages_btn_send"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/view1"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_alignTop="@+id/messagesGrid"
+                android:alpha="0.1"
+                android:background="@drawable/shadow_patch"
+                android:rotation="180" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_alignBottom="@+id/messagesGrid"
+                android:layout_alignParentLeft="true"
+                android:alpha="0.1"
+                android:background="@drawable/shadow_patch" />
+        </RelativeLayout>
+
+        <ProgressBar
+            android:id="@+id/messagesProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+    </FrameLayout>
+
+</LinearLayout>

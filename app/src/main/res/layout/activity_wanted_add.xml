@@ -1,0 +1,193 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/mytoolbar"
+        layout="@layout/toolbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/gray"
+        android:orientation="vertical" >
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin_smaller"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin" >
+
+                <com.moysof.obo.typeface.TextRobotoRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:text="@string/wanted_name"
+                    android:textColor="@color/gray_secondary"
+                    android:textSize="16sp" />
+
+                <com.moysof.obo.typeface.TextRobotoRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:text="@string/wanted_name_desc"
+                    android:textColor="@color/gray_secondary"
+                    android:textSize="12sp" />
+
+                <EditText
+                    android:id="@+id/wantedNameEditTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/apptheme_edit_text_holo_light"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:maxLength="30"
+                    android:textColor="@color/green" />
+
+                <com.moysof.obo.typeface.TextRobotoRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/wanted_price"
+                    android:textColor="@color/gray_secondary"
+                    android:textSize="16sp" />
+
+                <com.moysof.obo.typeface.TextRobotoRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:text="@string/wanted_price_desc"
+                    android:textColor="@color/gray_secondary"
+                    android:textSize="12sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp" >
+
+                    <com.moysof.obo.typeface.TextRobotoRegular
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="0.5dp"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
+                        android:text="@string/sell_price_symbol"
+                        android:textColor="@color/green"
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:id="@+id/wantedPriceEditTxt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/apptheme_edit_text_holo_light"
+                        android:gravity="center"
+                        android:hint="@string/sell_price_hint"
+                        android:inputType="numberDecimal"
+                        android:textColor="@color/green"
+                        android:textColorHint="@color/green_hint"
+                        android:textSize="20sp" />
+
+                    <com.moysof.obo.typeface.TextRobotoRegular
+                        android:id="@+id/TextRobotoRegular01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="0.5dp"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
+                        android:text="@string/wanted_price_max"
+                        android:textColor="@color/green"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <com.moysof.obo.typeface.TextRobotoRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/wanted_keywords"
+                    android:textColor="@color/gray_secondary"
+                    android:textSize="16sp" />
+
+                <com.moysof.obo.typeface.TextRobotoRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:text="@string/wanted_keywords_desc"
+                    android:textColor="@color/gray_secondary"
+                    android:textSize="12sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <EditText
+                        android:id="@+id/wantedKeywordEditTxt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/apptheme_edit_text_holo_light"
+                        android:ems="10"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
+                        android:textColor="@color/green" />
+
+                    <com.moysof.obo.typeface.ButtonRobotoMedium
+                        android:id="@+id/wantedKeywordBtn"
+                        android:layout_width="48dp"
+                        android:layout_height="36dp"
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginLeft="4dp"
+                        android:background="@drawable/button_green_selector"
+                        android:enabled="false"
+                        android:onClick="addKeyword"
+                        android:text="@string/wanted_btn_add"
+                        android:textColor="@android:color/white"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <ListView
+                    android:id="@+id/keywordsList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@android:color/white"
+                    android:divider="@color/gray_divider"
+                    android:dividerHeight="1px"
+                    android:stackFromBottom="true"
+                    android:transcriptMode="alwaysScroll" >
+                </ListView>
+            </LinearLayout>
+        </ScrollView>
+
+        <com.moysof.obo.typeface.ButtonRobotoMedium
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/button_green_selector"
+            android:gravity="center"
+            android:onClick="save"
+            android:text="@string/wanted_btn"
+            android:textColor="@android:color/white"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+</LinearLayout>

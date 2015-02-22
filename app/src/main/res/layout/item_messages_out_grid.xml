@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/messageLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="right"
+    android:background="@color/gray_lightest"
+    android:paddingBottom="8dp"
+    android:paddingLeft="4dp"
+    android:paddingRight="4dp"
+    android:paddingTop="8dp" >
+
+    <LinearLayout
+        android:id="@+id/messageBubbleLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="right"
+        android:background="@drawable/msg_out_patch"
+        android:orientation="vertical"
+        android:paddingBottom="8dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="16dp"
+        android:paddingTop="8dp" >
+
+        <com.moysof.obo.typeface.TextRobotoRegular
+            android:id="@+id/messagesTextTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="1dp"
+            android:autoLink="all"
+            android:includeFontPadding="false"
+            android:maxWidth="256dp"
+            android:textColor="@color/gray_primary"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <com.moysof.obo.typeface.TextRobotoThinItalic
+        android:id="@+id/messagesTimeTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="6dp"
+        android:layout_toLeftOf="@+id/messageBubbleLayout"
+        android:gravity="right"
+        android:textColor="@color/gray_primary"
+        android:textSize="12sp" />
+
+</RelativeLayout>

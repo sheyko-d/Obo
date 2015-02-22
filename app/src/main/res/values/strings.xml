@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="action_search">Search</string>
+    <string name="app_name">obo</string>
+    <string name="facebook_app_id">866637503380679</string>
+
+    <!-- Login Menu -->
+    <string name="slogan">MAKE YOUR BEST OFFER</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="log_in">LOG IN</string>
+    <string name="facebook">SIGN IN WITH FACEBOOK</string>
+
+    <!-- Sign Up -->
+    <string name="title_activity_sign_up">sign up</string>
+    <string name="sign_up_username">Username</string>
+    <string name="sign_up_password">Password</string>
+    <string name="sign_up_password_again">Password (again)</string>
+    <string name="sign_up_email">Email Address</string>
+    <string name="sign_up_terms_title">By clicking Sign Up you agree that you have read and agree to Privacy Policy. You also agree that you read our Safety Policy.</string>
+
+    <!-- Log In -->
+    <string name="title_activity_log_in">log in</string>
+    <string name="login_restore_dialog_title">Restore password</string>
+    <string name="login_restore_dialog_hint">Enter your email address</string>
+    <string name="forgot_password">Forgot your password?</string>
+
+    <!-- Main -->
+    <string name="main_empty">WAITING FOR LOCATION</string>
+    <string name="main_empty_search">NO ITEMS FOUND</string>
+    <string name="main_empty_btn">GPS SETTINGS</string>
+
+    <!-- Product -->
+    <string name="product_contact">CONTACT</string>
+    <string name="title_activity_sell">sell</string>
+
+    <!-- Sell -->
+    <string name="sell_btn_add">ADD</string>
+    <string name="sell_inactive">EXPIRED</string>
+    <string name="sell_empty">TAP TO SELL ITEM</string>
+    <string name="sell_action_delete">Delete</string>
+    <string name="sell_action_edit">Edit</string>
+    <string name="sell_action_sold">Mark as Sold</string>
+    <string name="sell_action_rotate_left">Rotate left</string>
+    <string name="sell_action_rotate_right">Rotate right</string>
+
+    <!-- Sell Add -->
+    <string name="sell_title">Title</string>
+    <string name="sell_title_desc">Name your listing. Be short yet descriptive!</string>
+    <string name="sell_category">Product Category</string>
+    <string name="sell_category_desc">Choose one of the categories listed below to post the product under. This is how users find your listing to be accurate!</string>
+    <string name="sell_price">Price</string>
+    <string name="sell_price_desc">How much are you looking to sell your item for? And remember&#8230; everything is obo!</string>
+    <string name="sell_price_symbol">$</string>
+    <string name="sell_price_hint">0.00</string>
+    <string name="sell_contact">Contact Choices</string>
+    <string name="sell_contact_desc">How would you like to be contacted by a potential buyer?</string>
+    <string name="sell_contact_messenger">obo Messenger</string>
+    <string name="sell_contact_email">Email</string>
+    <string name="sell_contact_call">Phone Call</string>
+    <string name="sell_photos">Photos</string>
+    <string name="sell_photos_desc">Post up to four images to post with your ad. Make sure these show your item in all its glory!</string>
+    <string name="sell_photos_add">Add</string>
+    <string name="sell_description">Description</string>
+    <string name="sell_description_desc">Fill out a little description about the item you are selling. Be as descriptive as possible. This is what will make people want to buy it from you!</string>
+    <string name="sell_duration">Duration</string>
+    <string name="sell_duration_dialog_title">Enter number of weeks</string>
+    <string name="sell_duration_desc">How long do you want your item to be up for sale? The first week is free. Longer is $1.00 / week. You can create a new ad for free as many items as you want.</string>
+    <string name="sell_cost_title">TOTAL COST:</string>
+    <string name="sell_cost_placeholder">$0.00</string>
+    <string name="sell_terms_title">By clicking Sell Product you agree that you have read and agree to the Selling Policy. You also agree that you read our Safety Policy.</string>
+    <string name="sell_terms_title_save">By clicking Save Changes you agree that you have read and agree to the Selling Policy. You also agree that you read our Safety Policy.</string>
+    <string name="sell_btn">SELL PRODUCT</string>
+    <string name="sell_btn_save">SAVE CHANGES</string>
+    <string name="sell_action_gallery">Choose from gallery</string>
+    <string name="sell_action_camera">Take a photo</string>
+
+    <!-- Messages -->
+    <string name="title_activity_messages">messages</string>
+    <string name="messages_hint">MESSAGE</string>
+    <string name="messages_btn_send">SEND</string>
+    <string name="messages_empty">NO MESSAGES</string>
+
+    <!-- GCM -->
+    <string name="error_config">Please set the %1$s constant and recompile the app.</string>
+    <string name="already_registered">Device is already registered on server.</string>
+    <string name="gcm_registered">From GCM: device successfully registered!</string>
+    <string name="gcm_unregistered">From GCM: device successfully unregistered!</string>
+    <string name="gcm_message">From GCM: you got message!</string>
+    <string name="gcm_error">From GCM: error (%1$s).</string>
+    <string name="gcm_recoverable_error">From GCM: recoverable error (%1$s).</string>
+    <string name="gcm_deleted">From GCM: server deleted %1$s pending messages!</string>
+    <string name="server_registering">Trying (attempt %1$s/%2$d) to register device on Demo Server.</string>
+    <string name="server_registered">From Demo Server: successfully added device!</string>
+    <string name="server_unregistered">From Demo Server: successfully removed device!</string>
+    <string name="server_register_error">Could not register device on Demo Server after %1$s attempts.</string>
+    <string name="server_unregister_error">Could not unregister device on Demo Server (%1$s).</string>
+    <string name="title_activity_my_account">my account</string>
+
+    <!-- Settings -->
+    <string name="title_activity_settings">settings</string>
+    <string name="settings_distance">Search Distance</string>
+    <string name="settings_distance_desc">This is the distance from you that app will search for desired items on your wanted list</string>
+    <string name="settings_distance_measurement">miles</string>
+    <string name="settings_wanted">Wanted List Notification</string>
+    <string name="settings_wanted_desc">Do you want a notification to appear on your phone when an item matching your wanted list is being sold nearby?</string>
+    <string name="settings_msg">Message Notification</string>
+    <string name="settings_msg_desc">Do you want a notification to appear on your phone when a new message is received?</string>
+    <string name="settings_wanted_yes">yes</string>
+    <string name="settings_wanted_no">no</string>
+    <string name="settings_btn">ABOUT</string>
+
+    <!-- Search -->
+    <string name="title_activity_search">search</string>
+
+    <!-- Wanted -->
+    <string name="wanted_name">Name</string>
+    <string name="title_activity_wanted">wanted</string>
+    <string name="wanted_empty">TAP TO ADD ITEM</string>
+    <string name="wanted_name_desc">Name your wanted item so that you remember what you wanted later on</string>
+    <string name="wanted_price">Price</string>
+    <string name="wanted_price_desc">Set the max dollar value that you want to spend</string>
+    <string name="wanted_price_max">max</string>
+    <string name="wanted_keywords">Keywords</string>
+    <string name="wanted_keywords_desc">Add keywords to help search for the items you want. For example, for a computer desk: desk, wood desk, computer desk</string>
+    <string name="wanted_btn">SAVE</string>
+    <string name="wanted_btn_add">ADD</string>
+    <string name="wanted_action_delete">Delete</string>
+
+    <!-- Edit Profile -->
+    <string name="title_activity_edit_profile">edit profile</string>
+    <string name="edit_btn">SAVE</string>
+    <string name="edit_first_name">First Name</string>
+    <string name="edit_last_name">Last Name</string>
+    <string name="edit_zip_code">ZIP Code</string>
+    <string name="edit_phone">Phone</string>
+    <string name="edit_password">Change Password</string>
+    <string name="edit_email">Email</string>
+    <string name="edit_photo_btn">CHANGE PHOTO</string>
+
+    <!-- Privacy -->
+    <string name="title_activity_privacy">privacy</string>
+
+    <!-- Safety -->
+    <string name="title_activity_safety">safety</string>
+
+    <!-- My Account -->
+    <string name="account_donate_edittxt_hint">Enter amount to donate</string>
+
+    <!-- Selling Policy -->
+    <string name="title_activity_policy">selling policy</string>
+
+    <!-- About -->
+    <string name="title_activity_about">about</string>
+    <string name="about_txt">Version %1$s\nCopyright 2014 moyersoftware\nAll rights reserved.</string>
+    <string name="about_link_txt">obo.moyersoftware.com</string>
+    <string name="about_link_url">http://obo.moyersoftware.com/</string>
+
+</resources>

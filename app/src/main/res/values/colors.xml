@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="green">#00a666</color>
+    <color name="green_transparent">#1100a666</color>
+    <color name="green_light">#7fd2b2</color>
+    <color name="green_dark">#009058</color>
+    <color name="green_darkest">#007a4b</color>
+    <color name="green_hint">#a0d1be</color>
+    <color name="gray">#e4e4e4</color>
+    <color name="gray_divider">#d8d8d8</color>
+    <color name="gray_drawer">#e3e3e3</color>
+    <color name="gray_drawer_text">#747474</color>
+    <color name="gray_dark">#606060</color>
+    <color name="gray_light">#bbbbbb</color>
+    <color name="gray_lighter">#d4d4d4</color>
+    <color name="gray_lightest">#f4f4f4</color>
+    <color name="gray_darker">#535353</color>
+    <color name="gray_sell_bg">#707070</color>
+    <color name="gray_primary">#555555</color>
+    <color name="gray_secondary">#6b6b6b</color>
+    <color name="gray_placeholder">#dadada</color>
+    <color name="gray_about_bg">#AA555555</color>
+    <color name="bg_actionbar_grey_transparent">#55AAAAAA</color>
+
+</resources>

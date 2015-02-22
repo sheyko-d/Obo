@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp" >
+
+    <com.moysof.obo.typeface.TextLogo
+        android:id="@+id/sellPosTxt"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@color/green"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="24sp" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingLeft="8dp" >
+
+        <com.moysof.obo.typeface.TextRobotoBold
+            android:id="@+id/sellTitleTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="@color/gray_primary"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <com.moysof.obo.typeface.TextRobotoThin
+                android:id="@+id/sellDurationTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:ellipsize="end"
+                android:gravity="right"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/gray_secondary"
+                android:textSize="12sp" />
+
+            <com.moysof.obo.typeface.TextRobotoBold
+                android:id="@+id/sellInactiveTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/label_patch"
+                android:text="@string/sell_inactive"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/sell_inactive_txtsize"
+                android:visibility="gone" />
+            
+            <com.moysof.obo.typeface.TextRobotoBold
+                android:id="@+id/sellSoldTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/label_orange_patch"
+                android:text="@string/sell_inactive"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/sell_inactive_txtsize"
+                android:visibility="gone" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.moysof.obo.typeface.TextRobotoThin
+        android:id="@+id/sellViewsTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/gray_secondary"
+        android:textSize="12sp" />
+
+</LinearLayout>

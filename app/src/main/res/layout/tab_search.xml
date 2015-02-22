@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/tab_selector"
+    android:clickable="true"
+    android:onClick="selectTab"
+    android:padding="8dp" >
+
+    <com.moysof.obo.typeface.TextRobotoRegular
+        android:id="@+id/tabTitleTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:includeFontPadding="false"
+        android:textColor="@color/green"
+        android:textSize="16sp" />
+
+    <com.moysof.obo.typeface.TextRobotoRegular
+        android:id="@+id/tabCountTxt"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="6dp"
+        android:background="@drawable/circle_green_bg"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
+
+</LinearLayout>

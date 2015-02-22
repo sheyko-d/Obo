@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="duration_full">
+        <item>1 Week / FREE</item>
+        <item>2 Weeks / $1.00</item>
+        <item>3 Weeks / $2.00</item>
+        <item>4 Weeks / $3.00</item>
+        <item>Other</item>
+    </string-array>
+    <string-array name="duration">
+        <item>1 Week</item>
+        <item>2 Weeks</item>
+        <item>3 Weeks</item>
+        <item>4 Weeks</item>
+    </string-array>
+    <string-array name="main_drawer">
+        <item>Home</item>
+        <item>Search</item>
+        <item>Sell</item>
+        <item>Wanted</item>
+        <item>Messages</item>
+        <item>My Account</item>
+        <item>Settings</item>
+    </string-array>
+
+</resources>

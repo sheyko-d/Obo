@@ -1,0 +1,90 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/mytoolbar"
+        layout="@layout/toolbar" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/gray"
+        tools:context="com.moysof.obo.SignUpActivity" >
+
+        <com.moysof.obo.typeface.TextRobotoRegular      android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:paddingLeft="4dp"
+            android:text="@string/sign_up_username"
+            android:textColor="@color/gray_dark"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/loginUsernameEditTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView1"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:background="@drawable/apptheme_edit_text_holo_light"
+            android:inputType="text" >
+
+            <requestFocus />
+        </EditText>
+
+        <com.moysof.obo.typeface.TextRobotoRegular      android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/loginUsernameEditTxt"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="8dp"
+            android:paddingLeft="4dp"
+            android:text="@string/sign_up_password"
+            android:textColor="@color/gray_dark"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/loginPasswordEditTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView2"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:background="@drawable/apptheme_edit_text_holo_light"
+            android:inputType="textPassword" />
+
+        <com.moysof.obo.typeface.TextRobotoRegular      android:id="@+id/loginForgotTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/loginPasswordEditTxt"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="8dp"
+            android:paddingLeft="4dp"
+            android:text="@string/forgot_password"
+            android:textColor="@color/green"
+            android:textSize="12sp" />
+
+        <com.moysof.obo.typeface.ButtonRobotoMedium      android:id="@+id/button1"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/button_green_selector"
+            android:gravity="center"
+            android:onClick="logIn"
+            android:text="@string/log_in"
+            android:textColor="@android:color/white"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+</LinearLayout>

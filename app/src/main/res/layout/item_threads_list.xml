@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:baselineAligned="false"
+    android:padding="12dp" >
+
+    <com.moysof.obo.view.RoundedImageView
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:id="@+id/messageImg"
+        android:background="@drawable/img_placeholder"
+        android:contentDescription="@null"
+        android:scaleType="centerCrop" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingLeft="12dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <com.moysof.obo.typeface.TextRobotoBold
+                android:id="@+id/messagesTitleTxt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/gray_primary"
+                android:textSize="16sp" />
+
+            <com.moysof.obo.typeface.TextRobotoThinItalic
+                android:id="@+id/messagesTimeTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:textColor="@color/gray_secondary"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <com.moysof.obo.typeface.TextRobotoBold
+                android:id="@+id/messagesAuthorTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="2dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/gray_primary"
+                android:textSize="13sp" />
+
+            <com.moysof.obo.typeface.TextRobotoThin
+                android:id="@+id/messagesCaptionTxt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="2dp"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/gray_secondary"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

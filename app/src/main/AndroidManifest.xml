@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.moysof.obo"
+    android:versionCode="1"
+    android:versionName="0.1" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="21" />
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- GCM requires a Google account. -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <!-- Keeps the processor from sleeping when a message is received. -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- Creates a custom permission so only this app can receive its messages. -->
+    <permission
+        android:name="com.moysof.obo.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.moysof.obo.permission.C2D_MESSAGE" />
+    <!-- This app has permission to register and receive data message. -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <!-- for card.io card scanning -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+
+    <!-- for most things, including card.io & paypal -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:name=".Obo"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".LoadingActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".LoadingMenuActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".SignUpActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/title_activity_sign_up" >
+        </activity>
+        <activity
+            android:name=".LogInActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/title_activity_log_in" >
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation|screenSize" >
+        </activity>
+        <activity
+            android:name=".ProductActivity"
+            android:configChanges="orientation|screenSize" >
+        </activity>
+        <activity
+            android:name=".SellAddActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/title_activity_sell" >
+        </activity>
+        <activity
+            android:name=".SellActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/title_activity_sell" >
+        </activity>
+        <activity
+            android:name=".MessagesContinuedActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/title_activity_messages" >
+        </activity>
+
+        <receiver
+            android:name="com.google.android.gcm.GCMBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+
+                <!-- Receives the actual messages. -->
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <!-- Receives the registration id. -->
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="com.moysof.obo" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".GCMIntentService" />
+
+        <activity
+            android:name=".MessagesActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/title_activity_messages" >
+        </activity>
+        <activity
+            android:name=".MyAccountActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/title_activity_my_account" >
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/title_activity_settings" >
+        </activity>
+        <activity
+            android:name="com.facebook.LoginActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@android:style/Theme.Panel" >
+        </activity>
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <activity
+            android:name=".SearchActivity"
+            android:configChanges="orientation|screenSize" >
+        </activity>
+        <activity
+            android:name=".WantedActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/title_activity_wanted" >
+        </activity>
+        <activity
+            android:name=".WantedAddActivity"
+            android:label="@string/title_activity_wanted" >
+        </activity>
+        <activity
+            android:name=".FullscreenImageActivity"
+            android:configChanges="orientation|screenSize" >
+        </activity>
+        <activity
+            android:name=".EditProfileActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/title_activity_edit_profile" >
+        </activity>
+        <activity
+            android:name=".PrivacyActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/title_activity_privacy" >
+        </activity>
+        <activity
+            android:name=".SafetyActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/title_activity_safety" >
+        </activity>
+        <activity
+            android:name=".PolicyActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/title_activity_policy" >
+        </activity>
+        <activity
+            android:name=".AboutActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/title_activity_about" >
+        </activity>
+
+        <service
+            android:name="com.paypal.android.sdk.payments.PayPalService"
+            android:exported="false" />
+
+        <activity android:name="com.paypal.android.sdk.payments.PaymentActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.LoginActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.PaymentMethodActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.PaymentConfirmActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.PayPalFuturePaymentActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.FuturePaymentConsentActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.FuturePaymentInfoActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.PayPalProfileSharingActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.ProfileSharingConsentActivity" />
+        <activity
+            android:name="io.card.payment.CardIOActivity"
+            android:configChanges="keyboardHidden|orientation" />
+        <activity android:name="io.card.payment.DataEntryActivity" />
+    </application>
+
+</manifest>

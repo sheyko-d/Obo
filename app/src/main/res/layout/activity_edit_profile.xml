@@ -1,0 +1,226 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/mytoolbar"
+        layout="@layout/toolbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/gray"
+        android:orientation="vertical"
+        tools:context="com.moysof.obo.SignUpActivity" >
+
+        <ScrollView
+            android:id="@+id/scrollView1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/gray_darker"
+                    android:orientation="vertical"
+                    android:paddingBottom="6dp"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingTop="8dp" >
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal" >
+
+                        <ImageButton
+                            android:id="@+id/editRotateLeft"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginRight="4dp"
+                            android:contentDescription="@null"
+                            android:onClick="rotateLeft"
+                            android:src="@drawable/ic_rotate_anticlockwise" />
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp" >
+
+                            <ImageView
+                                android:id="@+id/editImg"
+                                android:layout_width="128dp"
+                                android:layout_height="128dp"
+                                android:contentDescription="@null"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/avatar_placeholder" />
+
+                            <ProgressBar
+                                android:id="@+id/editProgressBar"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:visibility="gone" />
+                        </FrameLayout>
+
+                        <ImageButton                            android:id="@+id/editRotateRight"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="4dp"
+                            android:contentDescription="@null"
+                            android:onClick="rotateRight"
+                            android:src="@drawable/ic_rotate_clockwise" />
+                    </LinearLayout>
+
+                    <com.moysof.obo.typeface.ButtonRobotoMedium                  android:id="@+id/editPhotoBtn"
+                        android:layout_width="134dp"
+                        android:layout_height="36dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="6dp"
+                        android:background="@drawable/button_facebook_selector"
+                        android:drawableLeft="@drawable/ic_photo"
+                        android:text="@string/edit_photo_btn"
+                        android:textColor="@android:color/white"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <com.moysof.obo.typeface.TextRobotoRegular              android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:paddingLeft="4dp"
+                    android:text="@string/edit_first_name"
+                    android:textColor="@color/gray_dark"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/editNameEdittxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:background="@drawable/apptheme_edit_text_holo_light"
+                    android:inputType="textPersonName" />
+
+                <com.moysof.obo.typeface.TextRobotoRegular              android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="8dp"
+                    android:paddingLeft="4dp"
+                    android:text="@string/edit_last_name"
+                    android:textColor="@color/gray_dark"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/editSurnameEdittxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:background="@drawable/apptheme_edit_text_holo_light"
+                    android:inputType="textPersonName" />
+
+                <com.moysof.obo.typeface.TextRobotoRegular              android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="8dp"
+                    android:paddingLeft="4dp"
+                    android:text="@string/edit_email"
+                    android:textColor="@color/gray_dark"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/editEmailEdittxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:background="@drawable/apptheme_edit_text_holo_light"
+                    android:inputType="textEmailAddress" />
+
+                <com.moysof.obo.typeface.TextRobotoRegular              android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="8dp"
+                    android:paddingLeft="4dp"
+                    android:text="@string/edit_zip_code"
+                    android:textColor="@color/gray_dark"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/editZipEdittxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:background="@drawable/apptheme_edit_text_holo_light"
+                    android:inputType="text" />
+
+                <com.moysof.obo.typeface.TextRobotoRegular              android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="8dp"
+                    android:paddingLeft="4dp"
+                    android:text="@string/edit_phone"
+                    android:textColor="@color/gray_dark"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/editPhoneEdittxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:background="@drawable/apptheme_edit_text_holo_light"
+                    android:inputType="phone" />
+
+                <com.moysof.obo.typeface.TextRobotoRegular              android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="8dp"
+                    android:paddingLeft="4dp"
+                    android:text="@string/edit_password"
+                    android:textColor="@color/gray_dark"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/editPasswordEdittxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:background="@drawable/apptheme_edit_text_holo_light"
+                    android:inputType="textPassword" />
+            </LinearLayout>
+        </ScrollView>
+
+        <com.moysof.obo.typeface.ButtonRobotoMedium      android:id="@+id/editBtn"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/button_green_selector"
+            android:gravity="center"
+            android:onClick="save"
+            android:text="@string/edit_btn"
+            android:textColor="@android:color/white"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+</LinearLayout>

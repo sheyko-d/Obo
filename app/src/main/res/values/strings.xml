@@ -152,7 +152,7 @@
 
     <!-- About -->
     <string name="title_activity_about">about</string>
-    <string name="about_txt">Version %1$s\nCopyright 2014 moyersoftware\nAll rights reserved.</string>
+    <string name="about_txt">Version %1$s\nCopyright 2015 moyersoftware\nAll rights reserved.</string>
     <string name="about_link_txt">obo.moyersoftware.com</string>
     <string name="about_link_url">http://obo.moyersoftware.com/</string>
 

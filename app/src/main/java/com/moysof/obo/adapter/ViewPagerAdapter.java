@@ -1,12 +1,12 @@
 package com.moysof.obo.adapter;
 
-import java.util.ArrayList;
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.moysof.obo.MainFragment;
+
+import java.util.ArrayList;
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
@@ -33,7 +33,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
 	@Override
 	public Fragment getItem(int pos) {
-		return new MainFragment(mTitlesArrayList.get(pos),
+		return MainFragment.newInstance(mTitlesArrayList.get(pos),
 				mPricesArrayList.get(pos), mLocationsArrayList.get(pos),
 				mPhotosArrayList.get(pos), mPhotoNumsArrayList.get(pos),
 				mDistancesArrayList.get(pos));

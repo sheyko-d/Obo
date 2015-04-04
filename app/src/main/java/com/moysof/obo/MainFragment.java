@@ -1,8 +1,5 @@
 package com.moysof.obo;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,12 +9,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 
 public class MainFragment extends Fragment {
 
@@ -27,20 +28,42 @@ public class MainFragment extends Fragment {
 	private JSONArray mPhotoArray;
 	private Integer mPhotoNum;
 	private String mDistance;
+    private static final String EXTRA_TITLE = "title";
+    private static final String EXTRA_PRICE = "price";
+    private static final String EXTRA_LOCATION = "location";
+    private static final String EXTRA_PHOTOS = "photos";
+    private static final String EXTRA_PHOTO_NUM = "photoNum";
+    private static final String EXTRA_DISTANCE = "distance";
 
-	public MainFragment(String title, Double price, String location,
+
+    public static MainFragment newInstance(String title, Double price, String location,
 			String photos, Integer photoNum, String distance) {
-		mTitle = title;
-		mPrice = price;
-		mLocation = location;
-		mPhotoNum = photoNum;
-		mDistance = distance;
-		try {
-			mPhotoArray = new JSONArray(photos);
-		} catch (JSONException e) {
-			mPhotoArray = new JSONArray();
-		}
+        MainFragment f = new MainFragment();
+        Bundle bdl = new Bundle();
+        bdl.putString(EXTRA_TITLE, title);
+        bdl.putDouble(EXTRA_PRICE, price);
+        bdl.putString(EXTRA_LOCATION, location);
+        bdl.putString(EXTRA_PHOTOS, photos);
+        bdl.putInt(EXTRA_PHOTO_NUM, photoNum);
+        bdl.putString(EXTRA_DISTANCE, distance);
+        f.setArguments(bdl);
+        return f;
 	}
+
+    @Override
+     public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mTitle = getArguments().getString(EXTRA_TITLE);
+        mPrice = getArguments().getDouble(EXTRA_PRICE);
+        mLocation = getArguments().getString(EXTRA_LOCATION);
+        mPhotoNum = getArguments().getInt(EXTRA_PHOTO_NUM);
+        mDistance = getArguments().getString(EXTRA_DISTANCE);
+        try {
+            mPhotoArray = new JSONArray(getArguments().getString(EXTRA_PHOTOS));
+        } catch (JSONException e) {
+            mPhotoArray = new JSONArray();
+        }
+    }
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,

@@ -1,14 +1,15 @@
 package com.moysof.obo.adapter;
 
-import java.util.ArrayList;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
+
+import com.moysof.obo.ProductFragment;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import com.moysof.obo.ProductFragment;
+import java.util.ArrayList;
 
 public class ProductViewPagerAdapter extends FragmentStatePagerAdapter {
 
@@ -77,7 +78,7 @@ public class ProductViewPagerAdapter extends FragmentStatePagerAdapter {
 			mPhotoNum = mPhotoNumsArrayList.get(pos);
 			mCurrentPhotoPos = mPhotoNum;
 			mPhotosArray = new JSONArray(mPhotosArrayList.get(pos));
-			return new ProductFragment(pos, mIdsArrayList.size(), mCategory,
+			return ProductFragment.newInstance(pos, mIdsArrayList.size(), mCategory,
 					mId, mContactChoices, mTitle, mPrice, mLocation, mDistance,
 					mTimestamp, mDesc, mPhotoNum, mCurrentPhotoPos,
 					mPhotosArray);

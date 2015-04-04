@@ -1,13 +1,13 @@
 package com.moysof.obo.adapter;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.moysof.obo.PhotoFragment;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 
 public class PhotoViewPagerAdapter extends FragmentStatePagerAdapter {
 
@@ -22,9 +22,9 @@ public class PhotoViewPagerAdapter extends FragmentStatePagerAdapter {
 	@Override
 	public Fragment getItem(int pos) {
 		try {
-			return new PhotoFragment(mPhotosJSON.getString(pos));
+			return PhotoFragment.newInstance(mPhotosJSON.getString(pos));
 		} catch (JSONException e) {
-			return new PhotoFragment("");
+			return PhotoFragment.newInstance("");
 		}
 	}
 

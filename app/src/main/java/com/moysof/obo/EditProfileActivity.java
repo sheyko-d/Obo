@@ -1,25 +1,5 @@
 package com.moysof.obo;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.ContentType;
-import org.apache.http.entity.mime.MultipartEntityBuilder;
-import org.apache.http.entity.mime.content.FileBody;
-import org.apache.http.entity.mime.content.StringBody;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.ContentUris;
@@ -39,7 +19,6 @@ import android.provider.MediaStore;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.RelativeSizeSpan;
@@ -62,6 +41,26 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.nostra13.universalimageloader.utils.MemoryCacheUtils;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.ContentType;
+import org.apache.http.entity.mime.MultipartEntityBuilder;
+import org.apache.http.entity.mime.content.FileBody;
+import org.apache.http.entity.mime.content.StringBody;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EditProfileActivity extends ActionBarActivity {
 
@@ -105,17 +104,17 @@ public class EditProfileActivity extends ActionBarActivity {
 				Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 		actionBar.setTitle(s);
 
+        // Create global configuration and initialize ImageLoader with this
+        // config
+        DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
+                .cacheInMemory(true).cacheOnDisk(true).build();
+        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(
+                this).defaultDisplayImageOptions(defaultOptions).build();
+        ImageLoader.getInstance().init(config);
+
 		String photo = PreferenceManager.getDefaultSharedPreferences(this)
 				.getString("photo", "");
 		if (!photo.equals("")) {
-			// Create global configuration and initialize ImageLoader with this
-			// config
-			DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
-					.cacheInMemory(true).cacheOnDisk(true).build();
-			ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(
-					this).defaultDisplayImageOptions(defaultOptions).build();
-			ImageLoader.getInstance().init(config);
-
 			ImageLoader.getInstance().displayImage(
 					PreferenceManager.getDefaultSharedPreferences(this)
 							.getString("photo", ""),

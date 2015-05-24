@@ -19,6 +19,7 @@ import android.telephony.TelephonyManager;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.Request;
@@ -42,7 +43,6 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -69,12 +69,11 @@ public class LoadingMenuActivity extends ActionBarActivity {
             for (Signature signature : info.signatures) {
                 MessageDigest md = MessageDigest.getInstance("SHA");
                 md.update(signature.toByteArray());
-                Log.d("Log", "Signature: "+Base64.encodeToString(md.digest(), Base64.DEFAULT));
+                ((TextView) findViewById(R.id.hashtagTxt)).setText("Ryan, here is a keyhash:\n" + Base64.encodeToString(md.digest(), Base64.DEFAULT));
             }
-        } catch (PackageManager.NameNotFoundException e) {
+        } catch (Exception e) {
             Log.e("Log", e.toString());
-        } catch (NoSuchAlgorithmException e) {
-            Log.e("Log", e.toString());
+            ((TextView) findViewById(R.id.hashtagTxt)).setText("Can't get a a keyhash");
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

@@ -70,18 +70,4 @@
             android:textSize="14sp" />
     </LinearLayout>
 
-    <com.moysof.obo.typeface.TextLogo
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/hashtagTxt"
-        android:layout_alignParentTop="true"
-        android:gravity="center_horizontal"
-        android:shadowColor="#77000000"
-        android:shadowDy="2"
-        android:shadowRadius="2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:textColor="#fff"
-        android:textSize="16sp" />
-
 </RelativeLayout>

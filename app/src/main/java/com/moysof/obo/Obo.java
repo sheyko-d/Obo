@@ -19,11 +19,12 @@ import com.paypal.android.sdk.payments.PayPalService;
 public class Obo extends Application {
 	private SharedPreferences mPrefs;
 	public static Obo context;
-	private static final String CONFIG_ENVIRONMENT = PayPalConfiguration.ENVIRONMENT_NO_NETWORK;
+	private static final String CONFIG_ENVIRONMENT = PayPalConfiguration.ENVIRONMENT_PRODUCTION;
 
 	// note that these credentials will differ between live & sandbox
 	// environments.
-	private static final String CONFIG_CLIENT_ID = "AdMlQxAY82NDHEceI_t6PscsFoOL77veOaTYz45QT8e3ihWkwHEhgCY2Xn0z";
+	private static final String CONFIG_CLIENT_ID
+			= "AW1ZTvywXtQgpDJJvV6Z4yWQ2MMwsD19lG1VTAemT1SB96v3-DuCYyn95PCWjxAaBPOEpS7Ue-JPU8Hn";
 
 	private static PayPalConfiguration config = new PayPalConfiguration()
 			.environment(CONFIG_ENVIRONMENT).clientId(CONFIG_CLIENT_ID);

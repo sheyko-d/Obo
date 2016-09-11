@@ -1,20 +1,5 @@
 package com.moysof.obo.adapter;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -47,6 +32,22 @@ import com.moysof.obo.SellActivity;
 import com.moysof.obo.SettingsActivity;
 import com.moysof.obo.WantedActivity;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import cz.msebera.android.httpclient.HttpResponse;
+import cz.msebera.android.httpclient.NameValuePair;
+import cz.msebera.android.httpclient.client.ClientProtocolException;
+import cz.msebera.android.httpclient.client.entity.UrlEncodedFormEntity;
+import cz.msebera.android.httpclient.client.methods.HttpPost;
+import cz.msebera.android.httpclient.impl.client.DefaultHttpClient;
+import cz.msebera.android.httpclient.message.BasicNameValuePair;
+import cz.msebera.android.httpclient.util.EntityUtils;
+
 public class MainDrawerAdapter extends BaseAdapter {
 
 	public static Activity activity;
@@ -74,7 +75,7 @@ public class MainDrawerAdapter extends BaseAdapter {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
-					final int position, long id) {
+									final int position, long id) {
 				if (mPos == position) {
 					return;
 				}
@@ -83,48 +84,48 @@ public class MainDrawerAdapter extends BaseAdapter {
 					@Override
 					public void run() {
 						switch (position) {
-						case 0:
-							activity.startActivity(new Intent(activity,
-									MainActivity.class)
-									.putExtra("drawer", true));
-							activity.finish();
-							return;
-						case 1:
-							activity.startActivity(new Intent(activity,
-									SearchActivity.class).putExtra("drawer",
-									true));
-							activity.finish();
-							return;
-						case 2:
-							activity.startActivity(new Intent(activity,
-									SellActivity.class)
-									.putExtra("drawer", true));
-							activity.finish();
-							return;
-						case 3:
-							activity.startActivity(new Intent(activity,
-									WantedActivity.class).putExtra("drawer",
-									true));
-							activity.finish();
-							return;
-						case 4:
-							activity.startActivity(new Intent(activity,
-									MessagesActivity.class).putExtra("drawer",
-									true));
-							activity.finish();
-							return;
-						case 5:
-							activity.startActivity(new Intent(activity,
-									MyAccountActivity.class).putExtra("drawer",
-									true));
-							activity.finish();
-							return;
-						case 6:
-							activity.startActivity(new Intent(activity,
-									SettingsActivity.class).putExtra("drawer",
-									true));
-							activity.finish();
-							return;
+							case 0:
+								activity.startActivity(new Intent(activity,
+										MainActivity.class)
+										.putExtra("drawer", true));
+								activity.finish();
+								return;
+							case 1:
+								activity.startActivity(new Intent(activity,
+										SearchActivity.class).putExtra("drawer",
+										true));
+								activity.finish();
+								return;
+							case 2:
+								activity.startActivity(new Intent(activity,
+										SellActivity.class)
+										.putExtra("drawer", true));
+								activity.finish();
+								return;
+							case 3:
+								activity.startActivity(new Intent(activity,
+										WantedActivity.class).putExtra("drawer",
+										true));
+								activity.finish();
+								return;
+							case 4:
+								activity.startActivity(new Intent(activity,
+										MessagesActivity.class).putExtra("drawer",
+										true));
+								activity.finish();
+								return;
+							case 5:
+								activity.startActivity(new Intent(activity,
+										MyAccountActivity.class).putExtra("drawer",
+										true));
+								activity.finish();
+								return;
+							case 6:
+								activity.startActivity(new Intent(activity,
+										SettingsActivity.class).putExtra("drawer",
+										true));
+								activity.finish();
+								return;
 						}
 					}
 				}, 200);
@@ -137,6 +138,8 @@ public class MainDrawerAdapter extends BaseAdapter {
 
 		unreadCount = PreferenceManager.getDefaultSharedPreferences(activity)
 				.getInt("unread_count", 0);
+		activity.sendBroadcast(new Intent(Constansts.INTENT_RECIEVED_MESSAGE)
+				.putExtra("unreadCount", unreadCount));
 
 		new GetUnreadNumTask().execute();
 	}
@@ -221,6 +224,8 @@ public class MainDrawerAdapter extends BaseAdapter {
 				if (unreadCount != mNewCount) {
 					PreferenceManager.getDefaultSharedPreferences(activity)
 							.edit().putInt("unread_count", mNewCount).commit();
+					activity.sendBroadcast(new Intent(Constansts.INTENT_RECIEVED_MESSAGE)
+							.putExtra("unreadCount", mNewCount));
 				}
 			}
 		}

@@ -1,21 +1,5 @@
 package com.moysof.obo;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -29,7 +13,6 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.RelativeSizeSpan;
@@ -45,6 +28,23 @@ import android.widget.Toast;
 import com.moysof.obo.adapter.MainDrawerAdapter;
 import com.moysof.obo.adapter.ThreadsListAdapter;
 import com.moysof.obo.typeface.TypefaceSpan;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import cz.msebera.android.httpclient.HttpResponse;
+import cz.msebera.android.httpclient.NameValuePair;
+import cz.msebera.android.httpclient.client.ClientProtocolException;
+import cz.msebera.android.httpclient.client.entity.UrlEncodedFormEntity;
+import cz.msebera.android.httpclient.client.methods.HttpPost;
+import cz.msebera.android.httpclient.impl.client.DefaultHttpClient;
+import cz.msebera.android.httpclient.message.BasicNameValuePair;
+import cz.msebera.android.httpclient.util.EntityUtils;
 
 public class MessagesActivity extends ActionBarActivity {
 
@@ -259,6 +259,12 @@ public class MessagesActivity extends ActionBarActivity {
 	}
 
 	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		unregisterReceiver(receiver);
+	}
+
+	@Override
 	protected void onPostCreate(Bundle savedInstanceState) {
 		super.onPostCreate(savedInstanceState);
 		// Sync the toggle state after onRestoreInstanceState has occurred.
@@ -278,9 +284,9 @@ public class MessagesActivity extends ActionBarActivity {
 			PreferenceManager
 					.getDefaultSharedPreferences(getApplicationContext())
 					.edit()
-					.putInt("unread_count", 99)
+					.putInt("unread_count", 0)
 					.commit();
-			MainDrawerAdapter.unreadCount = 99;
+			MainDrawerAdapter.unreadCount = 0;
 			MainDrawerAdapter.adapter.notifyDataSetChanged();
 		}
 	};

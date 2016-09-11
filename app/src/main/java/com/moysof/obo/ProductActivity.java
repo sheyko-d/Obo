@@ -1,22 +1,5 @@
 package com.moysof.obo;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Locale;
-import java.util.Set;
-
-import org.apache.http.NameValuePair;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -26,7 +9,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.RelativeSizeSpan;
@@ -35,6 +17,24 @@ import android.view.MenuItem;
 
 import com.moysof.obo.adapter.ProductViewPagerAdapter;
 import com.moysof.obo.typeface.TypefaceSpan;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Locale;
+import java.util.Set;
+
+import cz.msebera.android.httpclient.NameValuePair;
+import cz.msebera.android.httpclient.client.ClientProtocolException;
+import cz.msebera.android.httpclient.client.entity.UrlEncodedFormEntity;
+import cz.msebera.android.httpclient.client.methods.HttpPost;
+import cz.msebera.android.httpclient.impl.client.DefaultHttpClient;
+import cz.msebera.android.httpclient.message.BasicNameValuePair;
 
 public class ProductActivity extends ActionBarActivity {
 

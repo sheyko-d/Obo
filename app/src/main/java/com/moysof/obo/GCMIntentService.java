@@ -15,24 +15,6 @@
  */
 package com.moysof.obo;
 
-import static com.moysof.obo.CommonUtilities.SENDER_ID;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -58,6 +40,25 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.assist.ImageSize;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import cz.msebera.android.httpclient.HttpResponse;
+import cz.msebera.android.httpclient.NameValuePair;
+import cz.msebera.android.httpclient.client.ClientProtocolException;
+import cz.msebera.android.httpclient.client.entity.UrlEncodedFormEntity;
+import cz.msebera.android.httpclient.client.methods.HttpPost;
+import cz.msebera.android.httpclient.impl.client.DefaultHttpClient;
+import cz.msebera.android.httpclient.message.BasicNameValuePair;
+import cz.msebera.android.httpclient.util.EntityUtils;
+
+import static com.moysof.obo.CommonUtilities.SENDER_ID;
 
 /**
  * IntentService responsible for handling GCM messages.

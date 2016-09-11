@@ -1,21 +1,5 @@
 package com.moysof.obo;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -34,7 +18,6 @@ import android.support.v7.widget.SearchView;
 import android.support.v7.widget.SearchView.OnQueryTextListener;
 import android.support.v7.widget.SearchView.SearchAutoComplete;
 import android.support.v7.widget.Toolbar;
-import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.RelativeSizeSpan;
@@ -55,6 +38,23 @@ import com.moysof.obo.adapter.MainDrawerAdapter;
 import com.moysof.obo.adapter.SearchListAdapter;
 import com.moysof.obo.adapter.ViewPagerAdapter;
 import com.moysof.obo.typeface.TypefaceSpan;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import cz.msebera.android.httpclient.HttpResponse;
+import cz.msebera.android.httpclient.NameValuePair;
+import cz.msebera.android.httpclient.client.ClientProtocolException;
+import cz.msebera.android.httpclient.client.entity.UrlEncodedFormEntity;
+import cz.msebera.android.httpclient.client.methods.HttpPost;
+import cz.msebera.android.httpclient.impl.client.DefaultHttpClient;
+import cz.msebera.android.httpclient.message.BasicNameValuePair;
+import cz.msebera.android.httpclient.util.EntityUtils;
 
 public class SearchActivity extends ActionBarActivity {
 

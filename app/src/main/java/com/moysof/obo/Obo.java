@@ -1,14 +1,17 @@
 package com.moysof.obo;
 
+import android.Manifest;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.widget.Toast;
@@ -35,17 +38,36 @@ public class Obo extends Application {
 		context = this;
 		mPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 		LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-		Location location = lm
-				.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-		if (location != null) {
-			mPrefs.edit().putString("lat", location.getLatitude() + "")
-					.commit();
-			mPrefs.edit().putString("lng", location.getLongitude() + "")
-					.commit();
-		}
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+			if (!(checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION)
+                    != PackageManager.PERMISSION_GRANTED && checkSelfPermission
+                    (Manifest.permission.ACCESS_COARSE_LOCATION)
+                    != PackageManager.PERMISSION_GRANTED)) {
+                Location location = lm
+                        .getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+                if (location != null) {
+                    mPrefs.edit().putString("lat", location.getLatitude() + "")
+                            .commit();
+                    mPrefs.edit().putString("lng", location.getLongitude() + "")
+                            .commit();
+                }
 
-		lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0,
-				locationListener);
+				lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0,
+						locationListener);
+            }
+		} else {
+			Location location = lm
+					.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+			if (location != null) {
+				mPrefs.edit().putString("lat", location.getLatitude() + "")
+						.commit();
+				mPrefs.edit().putString("lng", location.getLongitude() + "")
+						.commit();
+			}
+
+			lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0,
+					locationListener);
+		}
 
 		Intent intent = new Intent(this, PayPalService.class);
 		intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);

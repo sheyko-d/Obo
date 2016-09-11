@@ -1,20 +1,5 @@
 package com.moysof.obo;
 
-import java.io.IOException;
-import java.util.ArrayList;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.ContentType;
-import org.apache.http.entity.mime.MultipartEntityBuilder;
-import org.apache.http.entity.mime.content.StringBody;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -24,7 +9,6 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
-import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextWatcher;
@@ -42,6 +26,22 @@ import com.moysof.obo.typeface.TypefaceSpan;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import cz.msebera.android.httpclient.HttpResponse;
+import cz.msebera.android.httpclient.client.ClientProtocolException;
+import cz.msebera.android.httpclient.client.methods.HttpPost;
+import cz.msebera.android.httpclient.entity.ContentType;
+import cz.msebera.android.httpclient.entity.mime.MultipartEntityBuilder;
+import cz.msebera.android.httpclient.entity.mime.content.StringBody;
+import cz.msebera.android.httpclient.impl.client.DefaultHttpClient;
+import cz.msebera.android.httpclient.util.EntityUtils;
 
 public class WantedAddActivity extends ActionBarActivity {
 

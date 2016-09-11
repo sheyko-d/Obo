@@ -1,24 +1,5 @@
 package com.moysof.obo;
 
-import static com.moysof.obo.CommonUtilities.SERVER_URL;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -31,7 +12,6 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.RelativeSizeSpan;
@@ -53,6 +33,26 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import cz.msebera.android.httpclient.HttpResponse;
+import cz.msebera.android.httpclient.NameValuePair;
+import cz.msebera.android.httpclient.client.ClientProtocolException;
+import cz.msebera.android.httpclient.client.HttpClient;
+import cz.msebera.android.httpclient.client.entity.UrlEncodedFormEntity;
+import cz.msebera.android.httpclient.client.methods.HttpPost;
+import cz.msebera.android.httpclient.impl.client.DefaultHttpClient;
+import cz.msebera.android.httpclient.message.BasicNameValuePair;
+import cz.msebera.android.httpclient.util.EntityUtils;
+
+import static com.moysof.obo.CommonUtilities.SERVER_URL;
 
 public class MessagesContinuedActivity extends ActionBarActivity {
 	private ArrayList<String> mThreadIdsArrayList = new ArrayList<String>();
@@ -118,7 +118,8 @@ public class MessagesContinuedActivity extends ActionBarActivity {
 			Log("continued activity = " + mThreadId + ", " + mItemThreadId
 					+ ", " + mRecepientId);
 			new GetMessagesTask().execute();
-
+			sendBroadcast(new Intent(Constansts.INTENT_RECIEVED_MESSAGE)
+					.putExtra("unreadCount", 0));
 		}
 	}
 
@@ -126,6 +127,7 @@ public class MessagesContinuedActivity extends ActionBarActivity {
 	public void onDestroy() {
 		activity = null;
 		super.onDestroy();
+		unregisterReceiver(receiver);
 	}
 
 	BroadcastReceiver receiver = new BroadcastReceiver() {
@@ -273,18 +275,18 @@ public class MessagesContinuedActivity extends ActionBarActivity {
 
 							@Override
 							public void onLoadingFailed(String arg0, View arg1,
-									FailReason arg2) {
+														FailReason arg2) {
 							}
 
 							@Override
 							public void onLoadingComplete(String arg0,
-									View arg1, Bitmap bitmap) {
+														  View arg1, Bitmap bitmap) {
 								mBitmap = bitmap;
 							}
 
 							@Override
 							public void onLoadingCancelled(String arg0,
-									View arg1) {
+														   View arg1) {
 							}
 						});
 				PreferenceManager

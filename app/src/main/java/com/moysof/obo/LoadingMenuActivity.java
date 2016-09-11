@@ -1,16 +1,20 @@
 package com.moysof.obo;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.telephony.TelephonyManager;
 import android.util.Log;
@@ -25,14 +29,6 @@ import com.facebook.UiLifecycleHelper;
 import com.facebook.model.GraphUser;
 import com.google.android.gcm.GCMRegistrar;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -40,6 +36,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import cz.msebera.android.httpclient.HttpResponse;
+import cz.msebera.android.httpclient.NameValuePair;
+import cz.msebera.android.httpclient.client.ClientProtocolException;
+import cz.msebera.android.httpclient.client.entity.UrlEncodedFormEntity;
+import cz.msebera.android.httpclient.client.methods.HttpPost;
+import cz.msebera.android.httpclient.impl.client.DefaultHttpClient;
+import cz.msebera.android.httpclient.message.BasicNameValuePair;
+import cz.msebera.android.httpclient.util.EntityUtils;
 
 public class LoadingMenuActivity extends ActionBarActivity {
     private Session.StatusCallback statusCallback = new SessionStatusCallback();
@@ -58,6 +63,22 @@ public class LoadingMenuActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading_menu);
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (ContextCompat.checkSelfPermission(this,
+                    android.Manifest.permission.ACCESS_FINE_LOCATION)
+                    != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this,
+                    android.Manifest.permission.ACCESS_COARSE_LOCATION)
+                    != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this,
+                    Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED
+                    || ContextCompat.checkSelfPermission(this,
+                    Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION,
+                        Manifest.permission.ACCESS_FINE_LOCATION,
+                        Manifest.permission.READ_PHONE_STATE,
+                        Manifest.permission.READ_EXTERNAL_STORAGE}, 0);
+            }
+        }
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setStatusBarColor(Color.parseColor("#000000"));
         }
@@ -73,6 +94,12 @@ public class LoadingMenuActivity extends ActionBarActivity {
         uiHelper = new UiLifecycleHelper(this, new SessionStatusCallback());
         uiHelper.onCreate(savedInstanceState);
 
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
     public void signUp(View v) {

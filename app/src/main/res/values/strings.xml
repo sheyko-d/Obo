@@ -17,7 +17,7 @@
     <string name="sign_up_password">Password</string>
     <string name="sign_up_password_again">Password (again)</string>
     <string name="sign_up_email">Email Address</string>
-    <string name="sign_up_terms_title">By clicking Sign Up you agree that you have read and agree to Privacy Policy. You also agree that you read our Safety Policy.</string>
+    <string name="sign_up_terms_title">By clicking Sign Up you agree that you have read and agree to the Privacy Policy. You also agree that you read our Safety Policy.</string>
 
     <!-- Log In -->
     <string name="title_activity_log_in">log in</string>
@@ -152,7 +152,7 @@
 
     <!-- About -->
     <string name="title_activity_about">about</string>
-    <string name="about_txt">Version %1$s\nCopyright 2015 moyersoftware\nAll rights reserved.</string>
+    <string name="about_txt">Version %1$s\nCopyright 2016 MoyerSoftware LLC\nAll rights reserved.</string>
     <string name="about_link_txt">obo.moyersoftware.com</string>
     <string name="about_link_url">http://obo.moyersoftware.com/</string>
 

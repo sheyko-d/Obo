@@ -68,7 +68,7 @@ public class MessagesGridAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		LayoutInflater inflater = (LayoutInflater) mContext
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		if (mMineArrayList.get(position)) {
+		if (!mMineArrayList.get(position)) {
 			convertView = inflater.inflate(R.layout.item_messages_out_grid,
 					parent, false);
 		} else {
@@ -77,7 +77,7 @@ public class MessagesGridAdapter extends BaseAdapter {
 		}
 
 		// set up row data from holder
-		if (mMineArrayList.get(position)) {
+		if (!mMineArrayList.get(position)) {
 			((TextView) convertView.findViewById(R.id.messagesTextTxt))
 					.setText(mTextsArrayList.get(position));
 			if (mSeenArrayList.get(position) == 0) {

@@ -7,8 +7,8 @@ android {
         applicationId "com.moysof.obo"
         minSdkVersion 13
         targetSdkVersion 23
-        versionCode 19
-        versionName '1.1.05'
+        versionCode 20
+        versionName '1.1.06'
     }
     buildTypes {
         release {

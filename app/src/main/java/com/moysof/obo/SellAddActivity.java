@@ -11,6 +11,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -66,6 +68,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -1015,30 +1019,38 @@ public class SellAddActivity extends ActionBarActivity {
             if (data != null) {
                 if (resultCode == RESULT_OK) {
                     Uri selectedImageURI = data.getData();
+
+                    File photo = new File(Environment.getExternalStorageDirectory()
+                            + "/obo/" + System.currentTimeMillis() + ".jpg");
+                    try {
+                        photo = saveFile(decodeUri(this, selectedImageURI, 1000),
+                                photo);
+                    } catch (Exception e) {
+                        Log.d("Log", "Resize photo: " + e);
+                    }
+
+                    Uri photoUri = Uri.fromFile(photo);
+                    if (photo == null) return;
                     if (mCurrentPhotoPos == 1) {
-                        mPhoto1 = getPath(getApplicationContext(),
-                                selectedImageURI);
+                        mPhoto1 = photo.getAbsolutePath();
                         ImageLoader.getInstance().displayImage(
-                                selectedImageURI.toString(), mPhotoImg1);
+                                photoUri.toString(), mPhotoImg1);
                         mPhotoCheckbox1.setEnabled(true);
                         createPhotosArray();
                     } else if (mCurrentPhotoPos == 2) {
-                        mPhoto2 = getPath(getApplicationContext(),
-                                selectedImageURI);
+                        mPhoto2 = photo.getAbsolutePath();
                         ImageLoader.getInstance().displayImage(
-                                selectedImageURI.toString(), mPhotoImg2);
+                                photoUri.toString(), mPhotoImg2);
                         mPhotoCheckbox2.setEnabled(true);
                     } else if (mCurrentPhotoPos == 3) {
-                        mPhoto3 = getPath(getApplicationContext(),
-                                selectedImageURI);
+                        mPhoto3 = photo.getAbsolutePath();
                         ImageLoader.getInstance().displayImage(
-                                selectedImageURI.toString(), mPhotoImg3);
+                                photoUri.toString(), mPhotoImg3);
                         mPhotoCheckbox3.setEnabled(true);
                     } else if (mCurrentPhotoPos == 4) {
-                        mPhoto4 = getPath(getApplicationContext(),
-                                selectedImageURI);
+                        mPhoto4 = photo.getAbsolutePath();
                         ImageLoader.getInstance().displayImage(
-                                selectedImageURI.toString(), mPhotoImg4);
+                                photoUri.toString(), mPhotoImg4);
                         mPhotoCheckbox4.setEnabled(true);
                     }
                     createPhotosArray();
@@ -1050,6 +1062,11 @@ public class SellAddActivity extends ActionBarActivity {
                 File photo = new File(Environment.getExternalStorageDirectory()
                         + "/obo/" + mPhotoName);
                 mPhotoUri = Uri.fromFile(photo);
+                try {
+                    photo = saveFile(decodeUri(this, mPhotoUri, 1000), photo);
+                } catch (Exception e) {
+                    Log.d("Log", "Resize photo: " + e);
+                }
                 if (mCurrentPhotoPos == 1) {
                     mPhoto1 = photo.getAbsolutePath();
                     ImageLoader.getInstance().displayImage(
@@ -1107,6 +1124,47 @@ public class SellAddActivity extends ActionBarActivity {
             }
         }
         super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private File saveFile(Bitmap bitmap, File photo) {
+        FileOutputStream out = null;
+        try {
+            out = new FileOutputStream(photo.getPath());
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (out != null) {
+                    out.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return new File(photo.getPath());
+    }
+
+    public static Bitmap decodeUri(Context c, Uri uri, final int requiredSize)
+            throws FileNotFoundException {
+        BitmapFactory.Options o = new BitmapFactory.Options();
+        o.inJustDecodeBounds = true;
+        BitmapFactory.decodeStream(c.getContentResolver().openInputStream(uri), null, o);
+
+        int width_tmp = o.outWidth, height_tmp = o.outHeight;
+        int scale = 1;
+
+        while (true) {
+            if (width_tmp / 2 < requiredSize || height_tmp / 2 < requiredSize)
+                break;
+            width_tmp /= 2;
+            height_tmp /= 2;
+            scale *= 2;
+        }
+
+        BitmapFactory.Options o2 = new BitmapFactory.Options();
+        o2.inSampleSize = scale;
+        return BitmapFactory.decodeStream(c.getContentResolver().openInputStream(uri), null, o2);
     }
 
     private void createPhotosArray() {

@@ -51,16 +51,13 @@ import com.moysof.obo.adapter.ViewPagerAdapter;
 import com.moysof.obo.typeface.TypefaceSpan;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import cz.msebera.android.httpclient.HttpResponse;
 import cz.msebera.android.httpclient.NameValuePair;
-import cz.msebera.android.httpclient.client.ClientProtocolException;
 import cz.msebera.android.httpclient.client.entity.UrlEncodedFormEntity;
 import cz.msebera.android.httpclient.client.methods.HttpPost;
 import cz.msebera.android.httpclient.impl.client.DefaultHttpClient;
@@ -388,78 +385,85 @@ public class MainActivity extends ActionBarActivity {
                 DefaultHttpClient client = new DefaultHttpClient();
 
                 HttpPost httpPost = new HttpPost(Constansts.GET_ITEMS_URL);
-                try {
-                    httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-                    HttpResponse response = client.execute(httpPost);
-                    mResponseString = EntityUtils
-                            .toString(response.getEntity());
-                    Log(mResponseString);
-                    JSONObject jsonResponse = new JSONObject(mResponseString);
-                    if (jsonResponse.has("result")) {
-                        if (jsonResponse.getString("result").equals("success")) {
-                            mIdsArrayList.clear();
-                            mTitlesArrayList.clear();
-                            mPricesArrayList.clear();
-                            mLocationsArrayList.clear();
-                            mPhotosArrayList.clear();
-                            mPhotoNumsArrayList.clear();
-                            mCategoriesIdsArrayList.clear();
-                            mCategoriesArrayList.clear();
-                            mDescArrayList.clear();
-                            mTimestampsArrayList.clear();
-                            mDistancesArrayList.clear();
-                            mContactChoicesArrayList.clear();
-
-                            mItemsJSON = new JSONArray(
-                                    jsonResponse.getString("array"));
-                            for (int i = 0; i < mItemsJSON.length(); i++) {
-                                mIdsArrayList.add(mItemsJSON.getJSONObject(i)
-                                        .getString("id"));
-                                mTitlesArrayList.add(mItemsJSON
-                                        .getJSONObject(i).getString("title"));
-                                mPricesArrayList.add(mItemsJSON
-                                        .getJSONObject(i).getDouble("price"));
-                                String location = mItemsJSON.getJSONObject(i)
-                                        .getString("location");
-                                if (location.length() > 25) {
-                                    location = location.substring(0, 25) + "...";
-                                }
-                                mLocationsArrayList.add(location);
-                                mPhotosArrayList.add(new JSONObject(mItemsJSON
-                                        .getJSONObject(i).getString("photos"))
-                                        .getJSONArray("photos").toString());
-                                mPhotoNumsArrayList.add(new JSONObject(
-                                        mItemsJSON.getJSONObject(i).getString(
-                                                "photos")).getInt("main_num"));
-                                mDescArrayList.add(mItemsJSON.getJSONObject(i)
-                                        .getString("desc"));
-                                mTimestampsArrayList.add(mItemsJSON
-                                        .getJSONObject(i).getLong("timestamp"));
-                                mDistancesArrayList
-                                        .add(mItemsJSON.getJSONObject(i)
-                                                .getString("distance"));
-                                mCategoriesArrayList
-                                        .add(mItemsJSON.getJSONObject(i)
-                                                .getString("category"));
-                                mCategoriesIdsArrayList.add(mItemsJSON
-                                        .getJSONObject(i).getString(
-                                                "category_id"));
+                httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+                HttpResponse response = client.execute(httpPost);
+                mResponseString = EntityUtils
+                        .toString(response.getEntity());
+                Log(mResponseString);
+                JSONObject jsonResponse = new JSONObject(mResponseString);
+                if (jsonResponse.has("result")) {
+                    if (jsonResponse.getString("result").equals("success")) {
+                        mIdsArrayList.clear();
+                        mTitlesArrayList.clear();
+                        mPricesArrayList.clear();
+                        mLocationsArrayList.clear();
+                        mPhotosArrayList.clear();
+                        mPhotoNumsArrayList.clear();
+                        mCategoriesIdsArrayList.clear();
+                        mCategoriesArrayList.clear();
+                        mDescArrayList.clear();
+                        mTimestampsArrayList.clear();
+                        mDistancesArrayList.clear();
+                        mContactChoicesArrayList.clear();
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                mPagerAdapter.notifyDataSetChanged();
                             }
+                        });
 
-                            errorCode = -1;
-                        } else if (jsonResponse.getString("result").equals(
-                                "empty")) {
-                            errorCode = 1;
-                        } else {
-                            errorCode = 0;
+                        mItemsJSON = new JSONArray(
+                                jsonResponse.getString("array"));
+                        for (int i = 0; i < mItemsJSON.length(); i++) {
+                            mIdsArrayList.add(mItemsJSON.getJSONObject(i)
+                                    .getString("id"));
+                            mTitlesArrayList.add(mItemsJSON
+                                    .getJSONObject(i).getString("title"));
+                            mPricesArrayList.add(mItemsJSON
+                                    .getJSONObject(i).getDouble("price"));
+                            String location = mItemsJSON.getJSONObject(i)
+                                    .getString("location");
+                            if (location.length() > 25) {
+                                location = location.substring(0, 25) + "...";
+                            }
+                            mLocationsArrayList.add(location);
+                            mPhotosArrayList.add(new JSONObject(mItemsJSON
+                                    .getJSONObject(i).getString("photos"))
+                                    .getJSONArray("photos").toString());
+                            mPhotoNumsArrayList.add(new JSONObject(
+                                    mItemsJSON.getJSONObject(i).getString(
+                                            "photos")).getInt("main_num"));
+                            mDescArrayList.add(mItemsJSON.getJSONObject(i)
+                                    .getString("desc"));
+                            mTimestampsArrayList.add(mItemsJSON
+                                    .getJSONObject(i).getLong("timestamp"));
+                            mDistancesArrayList
+                                    .add(mItemsJSON.getJSONObject(i)
+                                            .getString("distance"));
+                            mCategoriesArrayList
+                                    .add(mItemsJSON.getJSONObject(i)
+                                            .getString("category"));
+                            mCategoriesIdsArrayList.add(mItemsJSON
+                                    .getJSONObject(i).getString(
+                                            "category_id"));
+
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    mPagerAdapter.notifyDataSetChanged();
+                                }
+                            });
                         }
+
+                        errorCode = -1;
+                    } else if (jsonResponse.getString("result").equals(
+                            "empty")) {
+                        errorCode = 1;
+                    } else {
+                        errorCode = 0;
                     }
-                } catch (ClientProtocolException e) {
-                    Log(e);
-                } catch (IOException e) {
-                    Log(e);
                 }
-            } catch (JSONException e) {
+            } catch (Exception e) {
                 Log(e);
             }
             return null;

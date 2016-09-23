@@ -51,7 +51,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:background="@drawable/apptheme_edit_text_holo_light"
-                    android:inputType="text"
+                    android:inputType="textCapWords|text"
                     android:maxLength="100"
                     android:textColor="@color/green" >
 

@@ -33,9 +33,11 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
 	@Override
 	public Fragment getItem(int pos) {
+		String photo = mPhotosArrayList.get(pos);
+		Integer photoNum = mPhotoNumsArrayList.get(pos);
 		return MainFragment.newInstance(mTitlesArrayList.get(pos),
 				mPricesArrayList.get(pos), mLocationsArrayList.get(pos),
-				mPhotosArrayList.get(pos), mPhotoNumsArrayList.get(pos),
+				photo, photoNum,
 				mDistancesArrayList.get(pos));
 	}
 
